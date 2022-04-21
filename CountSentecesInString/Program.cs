@@ -16,10 +16,8 @@ namespace ExampleProj
     {
         private static int GetNumberOfWords(string input)
         {
-            List<string> words = new List<string>();
-
-            var a = input.Split(' ');
-            return a.Count();
+            var words = input.Split(' ');
+            return words.Count();
         }
 
         public static void Main(string[] args)
