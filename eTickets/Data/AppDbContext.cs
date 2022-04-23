@@ -17,14 +17,6 @@ namespace eTickets.Data
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if(!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Data Source=KRAL-PC\\SQLEXPRESS;Initial Catalog=ecommerce-app-db;Trusted_Connection=True;TrustServerCertificate=True;Integrated Security=True;");
-            }
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
