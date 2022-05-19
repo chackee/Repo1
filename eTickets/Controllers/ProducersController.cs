@@ -1,5 +1,6 @@
 ﻿using eTickets.Data;
 using eTickets.Data.Services;
+using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,6 +18,33 @@ namespace eTickets.Controllers
         {
             var allProducers = await _service.GetAllAsync();
             return View(allProducers);
+        }
+
+        //GET: producers/details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound");
+            return View(producerDetails);
+        }
+
+        //GET: producers/create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("ProfilePictureURL,FullName,Bio")]Producer producer)
+        {
+            ModelState.Remove("Movies");
+            if (!ModelState.IsValid)
+            {
+                return View(producer);
+            } 
+
+            await _service.AddAsync(producer);
+            return RedirectToAction(nameof(Index));
         }
     }
 }
