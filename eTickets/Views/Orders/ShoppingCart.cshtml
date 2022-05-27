@@ -1,4 +1,5 @@
-﻿@using eTickets.Data.ViewModels
+﻿@using System.Globalization
+@using eTickets.Data.ViewModels
 @model ShoppingCartVM
 
 @{
@@ -46,7 +47,8 @@
                     <td colspan="2"></td>
                     <td><b>Total:</b></td>
                     <td>
-                        @Model.ShoppingCartTotal.ToString("c")
+                        <p>@Model.ShoppingCartTotal.ToString("c")</p>
+                        <p id="total">@Model.ShoppingCartTotal.ToString(CultureInfo.InvariantCulture)</p>
                     </td>
                     <td></td>
                 </tr>
@@ -73,6 +75,8 @@
     <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
     <script>
+        //let _total = @Html.Raw(@Model.ShoppingCartTotal);
+
         paypal.Button.render({
             //Configure environment
             env:'sandbox',
@@ -91,7 +95,14 @@
 
             //Set up a payment
             payment: function(data, actions) {
-                console.log("payment set up");
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: document.getElementById("total").innerHTML,
+                            currency: 'CZK'
+                        }
+                    }]
+                });
             },
 
             //Execute the payment
