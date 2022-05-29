@@ -47,8 +47,7 @@
                     <td colspan="2"></td>
                     <td><b>Total:</b></td>
                     <td>
-                        <p>@Model.ShoppingCartTotal.ToString("c")</p>
-                        <p id="total">@Model.ShoppingCartTotal.ToString(CultureInfo.InvariantCulture)</p>
+                        @Model.ShoppingCartTotal.ToString("c")
                     </td>
                     <td></td>
                 </tr>
@@ -66,6 +65,9 @@
                     Add more items
                 </a>
             </div>
+        </div>
+        <div class="text-center">
+            <p id="total" style="font-size:0px">@Model.ShoppingCartTotal.ToString(CultureInfo.InvariantCulture)</p>
         </div>
     </div>
 </div>
