@@ -89,5 +89,9 @@ namespace eTickets.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
+        public IActionResult AccessDenied(string ReturnUrl)
+        {
+            return View();
+        }
     }
 }
