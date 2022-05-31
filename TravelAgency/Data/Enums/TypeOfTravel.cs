@@ -1,6 +1,9 @@
 ﻿namespace TravelAgency.Data.Enums
 {
-    public class TypeOfTravel
+    public enum TypeOfTravel
     {
+        NoTravel = 1,
+        PartialTravel,
+        TravelIncluded
     }
 }

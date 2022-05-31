@@ -1,6 +1,9 @@
 ﻿namespace TravelAgency.Data.Enums
 {
-    public class TypeOfFood
+    public enum TypeOfFood
     {
+        NoFood = 1,
+        PartialFood,
+        FullFood
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using TravelAgency.Data.Enums;
 
 namespace TravelAgency.Models
@@ -9,7 +10,6 @@ namespace TravelAgency.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string PictureURL { get; set; }
-        public List<string> Gallery { get; set; }
         public int LengthOfTrip { get; set; }
         public double Price { get; set; }
         public TripCategory TripCategory { get; set; }
@@ -23,8 +23,12 @@ namespace TravelAgency.Models
         public string Description2 { get; set; }
 
         //Relationships
-        public List<Guide> Guides { get; set; }
-        public List<Destination> Destinations { get; set; }
+        public List<Trip_Guide> Trips_Guides { get; set; }
+
+        //Destination
+        public int DestinationId { get; set; }
+        [ForeignKey("DestinationId")]
+        public Destination Destinations { get; set; }
 
 
     }

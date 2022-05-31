@@ -1,6 +1,10 @@
 ﻿namespace TravelAgency.Data.Enums
 {
-    public class TypeOfStay
+    public enum TypeOfStay
     {
+        Outside = 1,
+        Tent,
+        Accomodation,
+        Hotel
     }
 }

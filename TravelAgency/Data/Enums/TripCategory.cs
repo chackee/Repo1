@@ -1,6 +1,12 @@
 ﻿namespace TravelAgency.Data.Enums
 {
-    public class TripCategory
+    public enum TripCategory
     {
+        Tour = 1,
+        Cycle,
+        Water,
+        Ski,
+        Sightseen,
+        Others
     }
 }

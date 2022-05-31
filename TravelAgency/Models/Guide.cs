@@ -21,5 +21,6 @@ namespace TravelAgency.Models
 
         //Relationships
         public List<Trip> Trips { get; set; }
+        public List<Trip_Guide> Trips_Guides { get; set; }
     }
 }
