@@ -29,5 +29,6 @@ namespace TravelAgency.Data
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<Trip_Guide> Trips_Guides { get; set; }
+        public object Actors { get; internal set; }
     }
 }
