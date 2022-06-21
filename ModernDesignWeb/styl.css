@@ -1,0 +1,160 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-image: url('images/background.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 14px;
+	color: #666666;
+}
+
+blockquote {
+	font-style: italic;
+}
+
+a {
+	color: #135293;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.title {
+	margin: 0;
+	padding: 10px 0;
+	background: url(images/img09.gif) repeat-x left bottom;
+	font-size: 227%;
+	font-weight: normal;
+	color: #135293;
+	text-align: left;
+}
+
+.boxed {
+	padding: 5px 30px 20px 30px;
+}
+
+.boxed p {
+	line-height: 180%;
+}
+
+.boxed img {
+	border-color: White;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.boxed img:hover {
+	border-color: Black;
+}
+
+#page {
+	width: 800px;
+	margin: 0 auto;
+	background: #FFFFFF;
+}
+
+#sidebar {
+	float: left;
+	width: 200px;
+}
+
+#sidebar img {
+	border: none;
+	margin-left: 56px;
+	margin-top: 13px;
+}
+
+#logo {
+	height: 210px;
+	background: #FFFFFF;
+}
+
+#logo img {
+	margin-left: 15px;
+	margin-top: 0px;
+}
+
+.logo {
+	margin: 0;
+	text-align: center;
+	font-weight: normal;
+	font-style: italic;
+	color: #9C9C9C;
+	padding: 10px 0 0 0;
+	font-size: 36px;
+}
+
+#menu {
+	padding: 20px;
+	background: #85C329 url(images/img04.gif) repeat-x;
+}
+
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu li {
+	padding: 10px 0;
+	background: url(images/img05.gif) repeat-x;
+}
+
+#menu li.first {
+	background: none;
+}
+
+#menu a {
+	display: block;
+	font-size: 20px;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+#menu a:hover {
+	background-color: #FFA500;
+}
+
+#content {
+	float: right;
+	width: 575px;
+}
+
+#copy {
+	width: 775px;
+	height: 120px;
+	margin: 0 auto;
+	background: url(images/img12.gif) repeat-x;
+}
+
+#copy p {
+	margin: 0;
+	font-size: 85%;
+}
+
+#links {
+	float: left;
+	width: 180px;
+	height: 45px;
+	padding: 35px 0 0 20px;
+	background: url(images/img13.gif) repeat-x;
+}
+
+#links a {
+	color: #FAFAD2;
+}
+
+#legacy {
+	float: right;
+	width: 500px;
+	height: 45px;
+	padding: 35px 0 0 20px;
+}
+
+#bar {
+	clear: both;
+}
