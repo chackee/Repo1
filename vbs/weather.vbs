@@ -36,33 +36,52 @@ If getWeatherForWeekXml(lon,lat,responseXml) Then
     ' Maximální "max" teplota v příštím týdnu a datum(y) kdy nastane
     ' Minimální "min" teplota v příštím týdnu a datum(y) kdy nastane
     
-    Set x = responseXml.getElementsByTagName("data")
+    Set ElementTags = responseXml.getElementsByTagName("data")
     Set MaxTemperatures = responseXml.getElementsByTagName("temp2m_max")
-    Dim maxValue, count, datum
-    maxValue = 0
-    a = Array()
-    b = Array()
+    minDates = Array()
+    maxDates = Array()
+    Temperatures = Array()
 
-' maximal value
-
-    For Each node In x
+    For Each node In ElementTags
         ' WScript.Echo node.GetAttribute("timepoint")
         Set y = node.getElementsByTagName("temp2m_max")
         For Each elem In y
             ' WScript.Echo elem.text
-            if CInt(elem.text) > maxValue Then
-                maxValue = elem.text
-                a = AddItem(a, maxValue)
-                b = AddItem(b, node.GetAttribute("timepoint"))
+            Temperatures = AddItem(Temperatures, CInt(elem.text))
 
-            End If
+            i_min = LBound(Temperatures)
+            i_max = UBound(Temperatures)
+
+            Max = Temperatures(i_min)
+            Min = Temperatures(i_min)
+            For i = i_min + 1 To i_max
+                If Temperatures(i) > Max Then
+                    Max = Temperatures(i)
+                ElseIf Temperatures(i) < Min Then
+                    Min = Temperatures(i)
+                End If
+            Next
+
+             If CInt(elem.text) >= Max Then
+                 maxDates = AddItem(maxDates, node.GetAttribute("timepoint"))
+             ElseIf CInt(elem.text) = Min Then
+                 minDates = AddItem(minDates, node.GetAttribute("timepoint"))
+             End If
         Next
     Next
 
-    WScript.Echo "Temperature: " & maxValue
+    WScript.Echo ""
+    WScript.Echo "Max Temperature: " & Max
     WScript.Echo "Dates: "
-    For Each val In b
-        WScript.Echo val 
-    Next
+     For Each val In maxDates
+         WScript.Echo val 
+     Next
 
+    WScript.Echo ""
+
+    WScript.Echo "Min Temperature: " & Min
+    WScript.Echo "Dates: "
+     For Each val In minDates
+         WScript.Echo val 
+     Next
 End If
