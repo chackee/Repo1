@@ -30,22 +30,24 @@ lat = 14.4371824
 Set responseXml = CreateObject("Msxml2.DOMDocument.6.0")
 
 If getWeatherForWeekXml(lon,lat,responseXml) Then
-    ' WScript.Echo responseXml.xml
+     WScript.Echo responseXml.xml
     
     'TODO -- check msxml2.domdocument documentation
     ' Maximální "max" teplota v příštím týdnu a datum(y) kdy nastane
     ' Minimální "min" teplota v příštím týdnu a datum(y) kdy nastane
     
     Set ElementTags = responseXml.getElementsByTagName("data")
-    Set MaxTemperatures = responseXml.getElementsByTagName("temp2m_max")
     minDates = Array()
     maxDates = Array()
     Temperatures = Array()
+    Temperatures2 = Array()
 
     For Each node In ElementTags
         ' WScript.Echo node.GetAttribute("timepoint")
-        Set y = node.getElementsByTagName("temp2m_max")
-        For Each elem In y
+        Set MaxTemperatures = node.getElementsByTagName("temp2m_max")
+        Set MinTemperatures = node.getElementsByTagName("temp2m_min")
+
+        For Each elem In MaxTemperatures
             ' WScript.Echo elem.text
             Temperatures = AddItem(Temperatures, CInt(elem.text))
 
@@ -62,12 +64,33 @@ If getWeatherForWeekXml(lon,lat,responseXml) Then
                 End If
             Next
 
-             If CInt(elem.text) >= Max Then
-                 maxDates = AddItem(maxDates, node.GetAttribute("timepoint"))
-             ElseIf CInt(elem.text) = Min Then
-                 minDates = AddItem(minDates, node.GetAttribute("timepoint"))
-             End If
+            If CInt(elem.text) = Max Then
+                maxDates = AddItem(maxDates, node.GetAttribute("timepoint"))
+            End If
         Next
+
+        For Each elem2 In MinTemperatures
+            ' WScript.Echo elem2.text
+
+            Temperatures2 = AddItem(Temperatures2, CInt(elem2.text))
+
+            i_min2 = LBound(Temperatures2)
+            i_max2 = UBound(Temperatures2)
+
+            Max2 = Temperatures2(i_min2)
+            Min2 = Temperatures2(i_min2)
+            For j = i_min2 + 1 To i_max2
+                If Temperatures2(j) > Max2 Then
+                    Max2 = Temperatures2(j)
+                ElseIf Temperatures2(j) < Min2 Then
+                    Min2 = Temperatures2(j)
+                End If
+            Next
+            If CInt(elem2.text) = Min2 Then
+                minDates = AddItem(minDates, node.GetAttribute("timepoint"))
+            End If
+        Next
+
     Next
 
     WScript.Echo ""
@@ -79,9 +102,9 @@ If getWeatherForWeekXml(lon,lat,responseXml) Then
 
     WScript.Echo ""
 
-    WScript.Echo "Min Temperature: " & Min
+    WScript.Echo "Min Temperature: " & Min2
     WScript.Echo "Dates: "
-     For Each val In minDates
-         WScript.Echo val 
+     For Each val2 In minDates
+         WScript.Echo val2 
      Next
 End If
