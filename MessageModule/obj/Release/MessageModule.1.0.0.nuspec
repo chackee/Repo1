@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MessageModule</id>
+    <version>1.0.0</version>
+    <authors>MessageModule</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="System.Configuration.ConfigurationManager" version="8.0.0-preview.5.23280.8" exclude="Build,Analyzers" />
+        <dependency id="Twilio" version="6.8.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Production\MessageModule\bin\Release\net6.0\MessageModule.dll" target="lib\net6.0\MessageModule.dll" />
+  </files>
+</package>

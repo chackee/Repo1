@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
+
 
 namespace MessageModule.configuration
 {
@@ -31,38 +27,5 @@ namespace MessageModule.configuration
 
 			return cfg;
 		}
-
-
-
-
-
-
-
-
-
-
-
-
-
-		/*static SMSConfiguration _instance = null;
-		public static SMSConfiguration Instance
-		{
-			get
-			{
-				if (_instance == null) throw new InvalidOperationException("Configuration hasn't been initialized yet");
-				return _instance;
-			}
-
-			set
-			{
-				if (_instance != null) throw new InvalidOperationException("Configuration has been initialized already");
-				_instance = value;
-			}
-		}
-
-		public SMSConfiguration()
-		{
-
-		}*/
 	}
 }

@@ -1,0 +1,12 @@
+D:\Production\MessageModule\bin\Release\net6.0\MessageModule.deps.json
+D:\Production\MessageModule\bin\Release\net6.0\MessageModule.dll
+D:\Production\MessageModule\bin\Release\net6.0\MessageModule.pdb
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.csproj.AssemblyReference.cache
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.GeneratedMSBuildEditorConfig.editorconfig
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.AssemblyInfoInputs.cache
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.AssemblyInfo.cs
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.csproj.CoreCompileInputs.cache
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.dll
+D:\Production\MessageModule\obj\Release\net6.0\refint\MessageModule.dll
+D:\Production\MessageModule\obj\Release\net6.0\MessageModule.pdb
+D:\Production\MessageModule\obj\Release\net6.0\ref\MessageModule.dll
